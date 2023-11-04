@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { TextInput } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { TextInput, Image } from 'react-native';
 
 export default function Inicio({ navigation }) {
 
@@ -21,7 +21,10 @@ export default function Inicio({ navigation }) {
       <View style={{ flex: 1 }}>
         <Text style={styles.welcomeTitle}>MARCARDOS DE PONTOS</Text>
       </View>
-      <View style={{ flex: 2, paddingBottom: 10 }}>
+      <View style={{ flex: 2 }}>
+        <Image source={require('../../assets/volleyball.png')}/>
+      </View>
+      <View style={{ flex: 3, paddingBottom: 10 }}>
         <Text style={styles.text}>
           TIME 1
         </Text>
@@ -39,7 +42,7 @@ export default function Inicio({ navigation }) {
           onChangeText={onTeamBChange}>
         </TextInput>
       </View>
-      <View style={{ flex: 3, height: 'auto', alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 4, alignItems: 'center', justifyContent: 'center' }}>
         <TouchableOpacity
           style={styles.button}
           onPress={() =>
@@ -66,9 +69,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: '#7798C3',
+    backgroundColor: '#7296C3',
     paddingBottom: 100,
     paddingTop: 100
+  },
+  image: {
+    flex: 2,
+    justifyContent: 'center',
   },
   input: {
     width: 250,
@@ -77,7 +84,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     padding: 20,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
+
+    color: '#7296C3',
+    fontSize: 18,
+    fontFamily: 'Roboto',
+    fontWeight: '800'
+
   },
   welcomeTitle: {
     fontSize: 28,
@@ -91,10 +104,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 84,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   buttonText: {
-    color: '#7798C3',
+    color: '#7296C3',
     fontSize: 24,
     fontFamily: 'Roboto',
     fontWeight: '800'

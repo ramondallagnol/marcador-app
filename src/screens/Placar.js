@@ -52,14 +52,18 @@ export default function Placar({route}) {
   }
 
   const checkVictoryTemA = () => {
-    if (teamA.score + 1 >= MAX_SCORE_VOLLEYBALL && teamA.score - teamB.score >= DIFF_SCORE_TO_SET_POINT) {
+    if (teamA.score + 1 >= MAX_SCORE_VOLLEYBALL && scoreDiff(teamA.score, teamB.score) >= DIFF_SCORE_TO_SET_POINT) {
       setTeamA({...teamA, setsWinner: teamA.setsWinner + 1, score: 0})
       setTeamB({...teamB, score: 0})
     }
   }
 
+  const scoreDiff = (score1, score2) => {
+    return score1 - score2;
+  }
+
   const checkVictoryTemB = () => {
-    if (teamB.score + 1 >= MAX_SCORE_VOLLEYBALL && teamB.score - teamA.score >= DIFF_SCORE_TO_SET_POINT) {
+    if (teamB.score + 1 >= MAX_SCORE_VOLLEYBALL && scoreDiff(teamB.score, teamA.score) >= DIFF_SCORE_TO_SET_POINT) {
       setTeamB({...teamB, setsWinner: teamB.setsWinner + 1, score: 0})
       setTeamA({...teamA, score: 0})
     }
@@ -102,6 +106,11 @@ export default function Placar({route}) {
 }
 
 const styles = StyleSheet.create({
+  topTextContainer: {
+    alignItems: 'center',
+    backgroundColor: 'black',
+    padding: 10,
+  },
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -122,14 +131,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   teamText: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
+    color: '#7798C3',
   },
   iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 13,
-    paddingTop: 25
+    paddingTop: 25,
+    height: 50
   },
   buttonReset: {
     height: 61,
